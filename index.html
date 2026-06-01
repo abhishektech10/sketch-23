@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier Aurore — World's Finest Figurine Artist</title>
+  <meta name="description" content="A world-class exhibition space celebrating the finest figurine artistry.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Raleway:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- LOADING SCREEN -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">ATELIER <span>AURORE</span></div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <div class="loader-text">Preparing the Exhibition</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-left">
+      <a href="#" class="nav-logo">ATELIER <span>AURORE</span></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#featured">Featured</a></li>
+      <li><a href="#figurines">Figurines</a></li>
+      <li><a href="#awards">Accolades</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#contact" class="nav-cta">Commission a Piece</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <button class="mobile-close" id="mobileClose">✕</button>
+    <nav class="mobile-nav">
+      <a href="#gallery" onclick="closeMobile()">Gallery</a>
+      <a href="#featured" onclick="closeMobile()">Featured</a>
+      <a href="#figurines" onclick="closeMobile()">Figurines</a>
+      <a href="#awards" onclick="closeMobile()">Accolades</a>
+      <a href="#contact" onclick="closeMobile()">Contact</a>
+    </nav>
+    <div class="mobile-footer-text">Est. 2008 · New York</div>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-ambient"></div>
+    <div class="hero-grid-lines"></div>
+
+    <div class="hero-left">
+      <div class="hero-eyebrow reveal">World's Premier Exhibition · 2026</div>
+      <h1 class="hero-title reveal">
+        <span class="hero-title-line">The Art of</span>
+        <span class="hero-title-line italic">Infinite Detail</span>
+      </h1>
+      <p class="hero-sub reveal">
+        An intimate gallery experience celebrating two decades of sculptural mastery — 
+        where each figurine breathes life, emotion, and extraordinary craft.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#gallery" class="btn-primary">Enter the Gallery</a>
+        <a href="#featured" class="btn-ghost">View Featured Works</a>
+      </div>
+    </div>
+
+    <div class="hero-right reveal">
+      <div class="hero-portrait-frame">
+        <div class="portrait-bg"></div>
+        <div class="portrait-artist">
+          <div class="artist-silhouette">
+            <svg viewBox="0 0 220 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Body -->
+              <ellipse cx="110" cy="290" rx="70" ry="30" fill="rgba(255,107,0,0.08)"/>
+              <!-- Figure -->
+              <path d="M80 180 Q85 240 80 310 L140 310 Q135 240 140 180 Z" fill="rgba(30,20,10,0.9)"/>
+              <!-- Arms -->
+              <path d="M80 185 Q55 210 50 240" stroke="rgba(30,20,10,0.85)" stroke-width="18" stroke-linecap="round" fill="none"/>
+              <path d="M140 185 Q165 210 170 240" stroke="rgba(30,20,10,0.85)" stroke-width="18" stroke-linecap="round" fill="none"/>
+              <!-- Holding figurine in left hand -->
+              <circle cx="50" cy="248" r="14" fill="rgba(255,107,0,0.7)"/>
+              <path d="M44 248 Q50 230 56 248" fill="rgba(255,140,50,0.6)" stroke="rgba(255,107,0,0.9)" stroke-width="1"/>
+              <!-- Neck -->
+              <rect x="100" y="135" width="20" height="28" rx="10" fill="rgba(220,160,100,0.9)"/>
+              <!-- Head -->
+              <ellipse cx="110" cy="115" rx="38" ry="44" fill="rgba(220,160,100,0.92)"/>
+              <!-- Hair -->
+              <path d="M72 105 Q78 65 110 62 Q142 65 148 105 Q140 80 110 78 Q80 80 72 105 Z" fill="rgba(30,20,10,0.85)"/>
+              <!-- Eyes -->
+              <ellipse cx="97" cy="110" rx="5" ry="6" fill="rgba(30,20,10,0.9)"/>
+              <ellipse cx="123" cy="110" rx="5" ry="6" fill="rgba(30,20,10,0.9)"/>
+              <!-- Eye highlights -->
+              <circle cx="99" cy="108" r="1.5" fill="white"/>
+              <circle cx="125" cy="108" r="1.5" fill="white"/>
+              <!-- Lips -->
+              <path d="M103 128 Q110 134 117 128" stroke="rgba(200,100,60,0.8)" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="portrait-label">
+          <span class="portrait-name">Aurore Villeneuve</span>
+          <span class="portrait-title">Master Sculptor & Figurine Artist</span>
+        </div>
+        <div class="portrait-award-badge">
+          <span class="award-star">★</span>
+          <span>World's Best</span>
+          <span>Figurine Artist</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-stats reveal">
+      <div class="hero-stat">
+        <strong>340+</strong><span>Original Works</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <strong>28</strong><span>Prestigious Awards</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <strong>18yr</strong><span>Master Craft</span>
+      </div>
+    </div>
+
+    <div class="hero-scroll-cue">
+      <div class="scroll-track"></div>
+      <span>Scroll to Explore</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE STRIP -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>MASTER SCULPTOR</span><span class="marquee-dot">◆</span>
+      <span>FIGURINE ARTIST</span><span class="marquee-dot">◆</span>
+      <span>WORLD RENOWNED</span><span class="marquee-dot">◆</span>
+      <span>28 AWARDS</span><span class="marquee-dot">◆</span>
+      <span>ATELIER AURORE</span><span class="marquee-dot">◆</span>
+      <span>ESTABLISHED 2008</span><span class="marquee-dot">◆</span>
+      <span>NEW YORK CITY</span><span class="marquee-dot">◆</span>
+      <span>MASTER SCULPTOR</span><span class="marquee-dot">◆</span>
+      <span>FIGURINE ARTIST</span><span class="marquee-dot">◆</span>
+      <span>WORLD RENOWNED</span><span class="marquee-dot">◆</span>
+      <span>28 AWARDS</span><span class="marquee-dot">◆</span>
+      <span>ATELIER AURORE</span><span class="marquee-dot">◆</span>
+      <span>ESTABLISHED 2008</span><span class="marquee-dot">◆</span>
+      <span>NEW YORK CITY</span><span class="marquee-dot">◆</span>
+    </div>
+  </div>
+
+  <!-- GALLERY SECTION -->
+  <section id="gallery">
+    <div class="section-header">
+      <div class="section-eyebrow reveal">Exhibition Hall · I</div>
+      <h2 class="section-title reveal">The Portfolio Gallery</h2>
+      <p class="section-desc reveal">A curated selection of original works, sketches, and concept art spanning two decades of artistic exploration.</p>
+    </div>
+
+    <div class="filter-row reveal" id="filterTabs">
+      <button class="filter-btn active" data-filter="all">All Works</button>
+      <button class="filter-btn" data-filter="figurine">Figurines</button>
+      <button class="filter-btn" data-filter="sketch">Sketches</button>
+      <button class="filter-btn" data-filter="portrait">Portraits</button>
+      <button class="filter-btn" data-filter="concept">Concept Art</button>
+    </div>
+
+    <div class="gallery-masonry" id="galleryGrid"></div>
+  </section>
+
+  <!-- FEATURED / ARTIST SPOTLIGHT -->
+  <section id="featured">
+    <div class="featured-backdrop"></div>
+    <div class="featured-inner">
+      <div class="section-eyebrow reveal" style="color:rgba(255,190,120,0.9)">Central Showcase · II</div>
+      <h2 class="section-title reveal" style="color:#fff">The Artist's Vision</h2>
+
+      <div class="spotlight-grid">
+        <div class="spotlight-card reveal" data-delay="0">
+          <div class="spotlight-img figurine-display">
+            <div class="display-case">
+              <div class="display-glass"></div>
+              <div class="display-figurine fig-1">
+                <svg viewBox="0 0 100 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="50" cy="150" rx="30" ry="8" fill="rgba(255,107,0,0.2)"/>
+                  <path d="M35 90 Q38 120 36 148 L64 148 Q62 120 65 90 Z" fill="rgba(255,107,0,0.85)"/>
+                  <path d="M35 92 Q22 108 18 128" stroke="rgba(255,107,0,0.75)" stroke-width="9" stroke-linecap="round" fill="none"/>
+                  <path d="M65 92 Q78 108 82 128" stroke="rgba(255,107,0,0.75)" stroke-width="9" stroke-linecap="round" fill="none"/>
+                  <rect x="44" y="68" width="12" height="18" rx="6" fill="rgba(255,200,150,0.9)"/>
+                  <ellipse cx="50" cy="52" rx="22" ry="26" fill="rgba(255,200,150,0.9)"/>
+                  <path d="M28 46 Q32 24 50 22 Q68 24 72 46 Q66 34 50 32 Q34 34 28 46 Z" fill="rgba(40,20,5,0.9)"/>
+                  <circle cx="43" cy="50" r="3.5" fill="rgba(40,20,5,0.95)"/>
+                  <circle cx="57" cy="50" r="3.5" fill="rgba(40,20,5,0.95)"/>
+                  <circle cx="44" cy="49" r="1" fill="white"/>
+                  <circle cx="58" cy="49" r="1" fill="white"/>
+                  <path d="M45 62 Q50 67 55 62" stroke="rgba(200,100,60,0.9)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                  <path d="M30 148 L70 148 L68 155 L32 155 Z" fill="rgba(255,107,0,0.4)"/>
+                </svg>
+              </div>
+              <div class="display-base"></div>
+              <div class="display-spotlight"></div>
+            </div>
+            <div class="display-plaque">
+              <div class="plaque-title">Lumière</div>
+              <div class="plaque-sub">Original Sculpture · 2023</div>
+            </div>
+          </div>
+          <div class="spotlight-info">
+            <div class="spotlight-num">No. 01</div>
+            <h3>Lumière — The Light Bearer</h3>
+            <p>Cast in hand-painted resin with gold-leaf detailing. This signature piece captures ethereal grace in three dimensions, standing 34cm tall with micro-engraved robes.</p>
+            <div class="spotlight-meta">
+              <span>Resin & Gold Leaf</span>
+              <span>34cm</span>
+              <span>Edition of 12</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="spotlight-card reveal" data-delay="1">
+          <div class="spotlight-img sketch-frame">
+            <div class="sketch-paper">
+              <svg viewBox="0 0 300 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Paper texture lines -->
+                <rect x="0" y="0" width="300" height="380" fill="#faf8f2"/>
+                <!-- Sketch lines - figure -->
+                <path d="M120 320 Q125 280 118 340" stroke="#2a1a08" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+                <path d="M180 320 Q175 280 182 340" stroke="#2a1a08" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+                <path d="M118 340 L182 340" stroke="#2a1a08" stroke-width="1.5" opacity="0.7"/>
+                <!-- Body sketch -->
+                <path d="M115 185 Q118 250 118 320 L182 320 Q182 250 185 185 Z" stroke="#2a1a08" stroke-width="1.8" fill="rgba(255,107,0,0.04)" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Arm sketches with measurements -->
+                <path d="M115 190 Q95 215 88 245" stroke="#2a1a08" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-dasharray="0"/>
+                <path d="M185 190 Q205 215 212 245" stroke="#2a1a08" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                <!-- Neck -->
+                <path d="M144 158 Q144 175 144 185" stroke="#2a1a08" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+                <path d="M156 158 Q156 175 156 185" stroke="#2a1a08" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+                <!-- Head sketch -->
+                <ellipse cx="150" cy="110" rx="52" ry="62" stroke="#2a1a08" stroke-width="2" fill="rgba(255,220,180,0.15)"/>
+                <!-- Hair -->
+                <path d="M98 98 Q104 55 150 50 Q196 55 202 98 Q190 68 150 65 Q110 68 98 98 Z" fill="rgba(40,20,5,0.5)" stroke="#2a1a08" stroke-width="1"/>
+                <!-- Facial features -->
+                <ellipse cx="138" cy="105" rx="7" ry="8" stroke="#2a1a08" stroke-width="1.5" fill="rgba(40,20,5,0.1)"/>
+                <ellipse cx="162" cy="105" rx="7" ry="8" stroke="#2a1a08" stroke-width="1.5" fill="rgba(40,20,5,0.1)"/>
+                <path d="M140 130 Q150 138 160 130" stroke="#2a1a08" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <!-- Dimension annotations -->
+                <line x1="220" y1="50" x2="220" y2="340" stroke="rgba(255,107,0,0.4)" stroke-width="0.8" stroke-dasharray="4,3"/>
+                <line x1="215" y1="50" x2="225" y2="50" stroke="rgba(255,107,0,0.5)" stroke-width="0.8"/>
+                <line x1="215" y1="340" x2="225" y2="340" stroke="rgba(255,107,0,0.5)" stroke-width="0.8"/>
+                <text x="228" y="200" font-size="10" fill="rgba(255,107,0,0.7)" font-family="sans-serif">34cm</text>
+                <!-- Horizontal annotation -->
+                <line x1="100" y1="360" x2="200" y2="360" stroke="rgba(255,107,0,0.4)" stroke-width="0.8" stroke-dasharray="4,3"/>
+                <text x="135" y="373" font-size="10" fill="rgba(255,107,0,0.7)" font-family="sans-serif">12cm</text>
+                <!-- Title handwriting -->
+                <text x="30" y="28" font-size="13" fill="rgba(40,20,5,0.6)" font-family="serif" font-style="italic">Lumière — Draft VI</text>
+                <line x1="28" y1="32" x2="240" y2="32" stroke="rgba(40,20,5,0.2)" stroke-width="0.8"/>
+                <!-- Notes -->
+                <text x="30" y="360" font-size="9" fill="rgba(40,20,5,0.4)" font-family="sans-serif">Material: Resin · Gold leaf</text>
+                <!-- Cross-hatch shading -->
+                <path d="M130 220 Q135 215 140 220 Q135 225 130 220" stroke="#2a1a08" stroke-width="0.6" fill="none" opacity="0.3"/>
+                <path d="M155 220 Q160 215 165 220 Q160 225 155 220" stroke="#2a1a08" stroke-width="0.6" fill="none" opacity="0.3"/>
+              </svg>
+            </div>
+            <div class="sketch-mat"></div>
+          </div>
+          <div class="spotlight-info">
+            <div class="spotlight-num">No. 02</div>
+            <h3>Original Concept Sketch</h3>
+            <p>Pencil on archival paper, annotated with dimension specifications. This working sketch reveals the meticulous process behind every finished piece — six revision stages over three months.</p>
+            <div class="spotlight-meta">
+              <span>Graphite on Paper</span>
+              <span>A2 Format</span>
+              <span>Working Draft</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="spotlight-card reveal" data-delay="2">
+          <div class="spotlight-img pedestal-display">
+            <div class="pedestal-stage">
+              <div class="pedestal-light"></div>
+              <div class="pedestal-figurine-group">
+                <!-- Three small figurines on a pedestal -->
+                <div class="mini-fig fig-a">
+                  <svg viewBox="0 0 60 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 55 Q24 72 22 85 L38 85 Q36 72 38 55 Z" fill="rgba(255,140,50,0.9)"/>
+                    <path d="M22 56 Q14 64 12 76" stroke="rgba(255,140,50,0.8)" stroke-width="6" stroke-linecap="round" fill="none"/>
+                    <path d="M38 56 Q46 64 48 76" stroke="rgba(255,140,50,0.8)" stroke-width="6" stroke-linecap="round" fill="none"/>
+                    <rect x="27" y="44" width="6" height="10" rx="3" fill="rgba(255,200,150,0.95)"/>
+                    <ellipse cx="30" cy="33" rx="13" ry="16" fill="rgba(255,200,150,0.95)"/>
+                    <path d="M17 28 Q19 14 30 13 Q41 14 43 28 Q38 20 30 19 Q22 20 17 28 Z" fill="rgba(40,20,5,0.85)"/>
+                    <circle cx="26" cy="31" r="2" fill="rgba(40,20,5,0.95)"/>
+                    <circle cx="34" cy="31" r="2" fill="rgba(40,20,5,0.95)"/>
+                    <path d="M18 85 L42 85 L40 89 L20 89 Z" fill="rgba(255,107,0,0.35)"/>
+                  </svg>
+                </div>
+                <div class="mini-fig fig-b">
+                  <svg viewBox="0 0 60 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 60 Q22 78 20 95 L40 95 Q38 78 40 60 Z" fill="rgba(200,80,20,0.9)"/>
+                    <path d="M20 61 Q11 71 9 84" stroke="rgba(200,80,20,0.8)" stroke-width="7" stroke-linecap="round" fill="none"/>
+                    <path d="M40 61 Q49 71 51 84" stroke="rgba(200,80,20,0.8)" stroke-width="7" stroke-linecap="round" fill="none"/>
+                    <rect x="26" y="48" width="8" height="12" rx="4" fill="rgba(255,200,150,0.95)"/>
+                    <ellipse cx="30" cy="36" rx="16" ry="18" fill="rgba(255,200,150,0.95)"/>
+                    <path d="M14 30 Q17 12 30 11 Q43 12 46 30 Q40 20 30 18 Q20 20 14 30 Z" fill="rgba(80,40,10,0.85)"/>
+                    <circle cx="25" cy="35" r="2.5" fill="rgba(40,20,5,0.95)"/>
+                    <circle cx="35" cy="35" r="2.5" fill="rgba(40,20,5,0.95)"/>
+                    <path d="M16 95 L44 95 L42 100 L18 100 Z" fill="rgba(200,80,20,0.35)"/>
+                  </svg>
+                </div>
+                <div class="mini-fig fig-c">
+                  <svg viewBox="0 0 60 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23 52 Q25 68 23 80 L37 80 Q35 68 37 52 Z" fill="rgba(255,160,80,0.9)"/>
+                    <path d="M23 53 Q16 62 14 73" stroke="rgba(255,160,80,0.8)" stroke-width="5" stroke-linecap="round" fill="none"/>
+                    <path d="M37 53 Q44 62 46 73" stroke="rgba(255,160,80,0.8)" stroke-width="5" stroke-linecap="round" fill="none"/>
+                    <rect x="27" y="42" width="6" height="9" rx="3" fill="rgba(255,210,160,0.95)"/>
+                    <ellipse cx="30" cy="31" rx="12" ry="15" fill="rgba(255,210,160,0.95)"/>
+                    <path d="M18 26 Q20 13 30 12 Q40 13 42 26 Q38 18 30 17 Q22 18 18 26 Z" fill="rgba(60,30,5,0.85)"/>
+                    <circle cx="26" cy="29" r="1.8" fill="rgba(40,20,5,0.95)"/>
+                    <circle cx="34" cy="29" r="1.8" fill="rgba(40,20,5,0.95)"/>
+                    <path d="M18 80 L42 80 L40 85 L20 85 Z" fill="rgba(255,160,80,0.3)"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="pedestal-body">
+                <div class="pedestal-top"></div>
+                <div class="pedestal-column"></div>
+                <div class="pedestal-base"></div>
+              </div>
+              <div class="pedestal-name-plate">The Trinity Collection</div>
+            </div>
+          </div>
+          <div class="spotlight-info">
+            <div class="spotlight-num">No. 03</div>
+            <h3>The Trinity Collection</h3>
+            <p>A limited series of three complementary sculptures exploring the spectrum of human emotion — Joy, Contemplation, and Resolve. Each piece resonates in dialogue with the others.</p>
+            <div class="spotlight-meta">
+              <span>Mixed Media</span>
+              <span>Series of 3</span>
+              <span>2022–2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIGURINES SHOWCASE -->
+  <section id="figurines">
+    <div class="section-header">
+      <div class="section-eyebrow reveal">Display Hall · III</div>
+      <h2 class="section-title reveal">Signature Figurines</h2>
+      <p class="section-desc reveal">Museum-quality collectibles, each a singular expression of human form and narrative captured in sculptural mastery.</p>
+    </div>
+
+    <div class="figurines-showcase" id="figurinesGrid"></div>
+
+    <div class="glass-cases-row reveal">
+      <div class="glass-case">
+        <div class="glass-case-top"></div>
+        <div class="glass-case-body">
+          <div class="case-figurine">
+            <svg viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="40" cy="112" rx="22" ry="6" fill="rgba(255,107,0,0.15)"/>
+              <path d="M28 70 Q30 90 28 108 L52 108 Q50 90 52 70 Z" fill="rgba(255,107,0,0.8)"/>
+              <path d="M28 71 Q18 82 15 96" stroke="rgba(255,107,0,0.7)" stroke-width="8" stroke-linecap="round" fill="none"/>
+              <path d="M52 71 Q62 82 65 96" stroke="rgba(255,107,0,0.7)" stroke-width="8" stroke-linecap="round" fill="none"/>
+              <rect x="35" y="54" width="10" height="14" rx="5" fill="rgba(255,205,155,0.95)"/>
+              <ellipse cx="40" cy="38" rx="20" ry="24" fill="rgba(255,205,155,0.95)"/>
+              <path d="M20 32 Q23 12 40 10 Q57 12 60 32 Q53 20 40 18 Q27 20 20 32 Z" fill="rgba(35,18,5,0.9)"/>
+              <circle cx="33" cy="36" r="3" fill="rgba(35,18,5,0.95)"/>
+              <circle cx="47" cy="36" r="3" fill="rgba(35,18,5,0.95)"/>
+              <circle cx="34" cy="35" r="1" fill="white"/>
+              <circle cx="48" cy="35" r="1" fill="white"/>
+              <path d="M35 48 Q40 53 45 48" stroke="rgba(200,90,50,0.9)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M22 108 L58 108 L56 114 L24 114 Z" fill="rgba(255,107,0,0.3)"/>
+            </svg>
+          </div>
+          <div class="case-glow"></div>
+        </div>
+        <div class="glass-case-base"></div>
+        <div class="case-label-plate">
+          <span class="case-name">Aurora</span>
+          <span class="case-edition">Ed. 01/50</span>
+        </div>
+      </div>
+
+      <div class="glass-case">
+        <div class="glass-case-top"></div>
+        <div class="glass-case-body">
+          <div class="case-figurine">
+            <svg viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="40" cy="112" rx="22" ry="6" fill="rgba(200,80,20,0.15)"/>
+              <path d="M28 70 Q30 90 28 108 L52 108 Q50 90 52 70 Z" fill="rgba(200,80,20,0.85)"/>
+              <path d="M28 71 Q18 82 15 96" stroke="rgba(200,80,20,0.75)" stroke-width="8" stroke-linecap="round" fill="none"/>
+              <path d="M52 71 Q62 82 65 96" stroke="rgba(200,80,20,0.75)" stroke-width="8" stroke-linecap="round" fill="none"/>
+              <rect x="35" y="54" width="10" height="14" rx="5" fill="rgba(245,195,145,0.95)"/>
+              <ellipse cx="40" cy="38" rx="20" ry="24" fill="rgba(245,195,145,0.95)"/>
+              <path d="M20 32 Q23 12 40 10 Q57 12 60 32 Q53 18 40 16 Q27 18 20 32 Z" fill="rgba(60,30,5,0.9)"/>
+              <circle cx="33" cy="36" r="3" fill="rgba(35,18,5,0.95)"/>
+              <circle cx="47" cy="36" r="3" fill="rgba(35,18,5,0.95)"/>
+              <circle cx="34" cy="35" r="1" fill="white"/>
+              <circle cx="48" cy="35" r="1" fill="white"/>
+              <path d="M35 48 Q40 53 45 48" stroke="rgba(200,90,50,0.9)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M22 108 L58 108 L56 114 L24 114 Z" fill="rgba(200,80,20,0.3)"/>
+              <!-- Crown detail -->
+              <path d="M24 20 L28 10 L32 18 L36 8 L40 16 L44 8 L48 18 L52 10 L56 20" stroke="rgba(255,200,50,0.8)" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+          <div class="case-glow" style="background:radial-gradient(ellipse at 50% 80%, rgba(200,80,20,0.25), transparent 65%)"></div>
+        </div>
+        <div class="glass-case-base"></div>
+        <div class="case-label-plate">
+          <span class="case-name">Solstice</span>
+          <span class="case-edition">Ed. 03/25</span>
+        </div>
+      </div>
+
+      <div class="glass-case featured-case">
+        <div class="featured-case-ribbon">Masterpiece</div>
+        <div class="glass-case-top"></div>
+        <div class="glass-case-body">
+          <div class="case-figurine">
+            <svg viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="40" cy="122" rx="24" ry="7" fill="rgba(255,180,50,0.2)"/>
+              <path d="M26 74 Q28 98 26 116 L54 116 Q52 98 54 74 Z" fill="rgba(255,140,0,0.85)"/>
+              <!-- Cape/flowing robe -->
+              <path d="M26 74 Q10 90 8 120 L30 120 Q28 95 30 74 Z" fill="rgba(255,107,0,0.4)"/>
+              <path d="M54 74 Q70 90 72 120 L50 120 Q52 95 50 74 Z" fill="rgba(255,107,0,0.4)"/>
+              <path d="M26 75 Q14 88 10 104" stroke="rgba(255,140,0,0.7)" stroke-width="9" stroke-linecap="round" fill="none"/>
+              <path d="M54 75 Q66 88 70 104" stroke="rgba(255,140,0,0.7)" stroke-width="9" stroke-linecap="round" fill="none"/>
+              <rect x="34" y="57" width="12" height="16" rx="6" fill="rgba(255,215,160,0.95)"/>
+              <ellipse cx="40" cy="40" rx="22" ry="26" fill="rgba(255,215,160,0.95)"/>
+              <path d="M18 34 Q22 10 40 8 Q58 10 62 34 Q54 18 40 16 Q26 18 18 34 Z" fill="rgba(30,15,0,0.92)"/>
+              <circle cx="33" cy="38" r="3.5" fill="rgba(30,15,0,0.98)"/>
+              <circle cx="47" cy="38" r="3.5" fill="rgba(30,15,0,0.98)"/>
+              <circle cx="34.5" cy="37" r="1.2" fill="white"/>
+              <circle cx="48.5" cy="37" r="1.2" fill="white"/>
+              <path d="M35 52 Q40 57 45 52" stroke="rgba(200,90,50,0.9)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+              <!-- Crown / tiara -->
+              <path d="M22 18 L27 6 L32 16 L37 4 L40 12 L43 4 L48 16 L53 6 L58 18" stroke="rgba(255,210,50,0.95)" stroke-width="2" fill="none"/>
+              <circle cx="40" cy="4" r="3" fill="rgba(255,210,50,0.9)"/>
+              <circle cx="27" cy="6" r="2" fill="rgba(255,210,50,0.75)"/>
+              <circle cx="53" cy="6" r="2" fill="rgba(255,210,50,0.75)"/>
+              <!-- Scepter -->
+              <line x1="68" y1="100" x2="72" y2="55" stroke="rgba(255,200,50,0.7)" stroke-width="2"/>
+              <circle cx="72" cy="52" r="5" fill="rgba(255,200,50,0.75)" stroke="rgba(255,160,20,0.9)" stroke-width="1"/>
+              <path d="M20 116 L60 116 L58 122 L22 122 Z" fill="rgba(255,140,0,0.35)"/>
+            </svg>
+          </div>
+          <div class="case-glow" style="background:radial-gradient(ellipse at 50% 75%, rgba(255,180,50,0.4), transparent 60%)"></div>
+        </div>
+        <div class="glass-case-base"></div>
+        <div class="case-label-plate">
+          <span class="case-name">Empress</span>
+          <span class="case-edition">Unique · N/A</span>
+        </div>
+      </div>
+
+      <div class="glass-case">
+        <div class="glass-case-top"></div>
+        <div class="glass-case-body">
+          <div class="case-figurine">
+            <svg viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="40" cy="112" rx="22" ry="6" fill="rgba(180,60,0,0.15)"/>
+              <path d="M28 70 Q30 90 28 108 L52 108 Q50 90 52 70 Z" fill="rgba(180,60,0,0.85)"/>
+              <path d="M28 71 Q18 82 15 96" stroke="rgba(180,60,0,0.75)" stroke-width="8" stroke-linecap="round" fill="none"/>
+              <path d="M52 71 Q62 82 65 96" stroke="rgba(180,60,0,0.75)" stroke-width="8" stroke-linecap="round" fill="none"/>
+              <rect x="35" y="54" width="10" height="14" rx="5" fill="rgba(240,190,140,0.95)"/>
+              <ellipse cx="40" cy="38" rx="20" ry="24" fill="rgba(240,190,140,0.95)"/>
+              <path d="M22 30 Q26 14 40 12 Q54 14 58 30 Q52 20 40 18 Q28 20 22 30 Z" fill="rgba(80,40,10,0.88)"/>
+              <circle cx="33" cy="36" r="3" fill="rgba(35,18,5,0.95)"/>
+              <circle cx="47" cy="36" r="3" fill="rgba(35,18,5,0.95)"/>
+              <circle cx="34" cy="35" r="1" fill="white"/>
+              <circle cx="48" cy="35" r="1" fill="white"/>
+              <path d="M35 48 Q40 53 45 48" stroke="rgba(200,90,50,0.9)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <!-- wings/flowing element -->
+              <path d="M15 80 Q5 60 20 50 Q30 60 28 72" fill="rgba(180,60,0,0.2)" stroke="rgba(180,60,0,0.3)" stroke-width="1"/>
+              <path d="M65 80 Q75 60 60 50 Q50 60 52 72" fill="rgba(180,60,0,0.2)" stroke="rgba(180,60,0,0.3)" stroke-width="1"/>
+              <path d="M22 108 L58 108 L56 114 L24 114 Z" fill="rgba(180,60,0,0.3)"/>
+            </svg>
+          </div>
+          <div class="case-glow" style="background:radial-gradient(ellipse at 50% 80%, rgba(180,60,0,0.2), transparent 65%)"></div>
+        </div>
+        <div class="glass-case-base"></div>
+        <div class="case-label-plate">
+          <span class="case-name">Vesper</span>
+          <span class="case-edition">Ed. 07/30</span>
+        </div>
+      </div>
+
+      <div class="glass-case">
+        <div class="glass-case-top"></div>
+        <div class="glass-case-body">
+          <div class="case-figurine">
+            <svg viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="40" cy="112" rx="22" ry="6" fill="rgba(255,120,30,0.15)"/>
+              <path d="M28 70 Q30 90 28 108 L52 108 Q50 90 52 70 Z" fill="rgba(255,120,30,0.82)"/>
+              <path d="M28 71 Q18 82 15 96" stroke="rgba(255,120,30,0.72)" stroke-width="8" stroke-linecap="round" fill="none"/>
+              <path d="M52 71 Q62 82 65 96" stroke="rgba(255,120,30,0.72)" stroke-width="8" stroke-linecap="round" fill="none"/>
+              <rect x="35" y="54" width="10" height="14" rx="5" fill="rgba(255,210,170,0.95)"/>
+              <ellipse cx="40" cy="38" rx="20" ry="24" fill="rgba(255,210,170,0.95)"/>
+              <path d="M20 32 Q22 14 40 12 Q58 14 60 32 Q54 18 40 16 Q26 18 20 32 Z" fill="rgba(40,20,5,0.85)"/>
+              <circle cx="33" cy="36" r="3" fill="rgba(35,18,5,0.95)"/>
+              <circle cx="47" cy="36" r="3" fill="rgba(35,18,5,0.95)"/>
+              <circle cx="34" cy="35" r="1" fill="white"/>
+              <circle cx="48" cy="35" r="1" fill="white"/>
+              <path d="M35 48 Q40 53 45 48" stroke="rgba(200,90,50,0.9)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <!-- book in hand -->
+              <rect x="58" y="82" width="14" height="18" rx="2" fill="rgba(255,210,50,0.6)" stroke="rgba(200,150,20,0.5)" stroke-width="1"/>
+              <line x1="65" y1="84" x2="65" y2="98" stroke="rgba(200,150,20,0.5)" stroke-width="0.8"/>
+              <path d="M22 108 L58 108 L56 114 L24 114 Z" fill="rgba(255,120,30,0.3)"/>
+            </svg>
+          </div>
+          <div class="case-glow" style="background:radial-gradient(ellipse at 50% 80%, rgba(255,120,30,0.22), transparent 65%)"></div>
+        </div>
+        <div class="glass-case-base"></div>
+        <div class="case-label-plate">
+          <span class="case-name">Sage</span>
+          <span class="case-edition">Ed. 02/40</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS SECTION -->
+  <section id="awards">
+    <div class="awards-backdrop"></div>
+    <div class="awards-inner">
+      <div class="section-eyebrow reveal" style="color:rgba(255,190,120,0.9)">Accolades · IV</div>
+      <h2 class="section-title reveal" style="color:#fff">World-Class Recognition</h2>
+      <p class="section-desc reveal" style="color:rgba(255,255,255,0.55)">Two decades of artistry acknowledged by the world's most prestigious institutions in sculpture and fine art.</p>
+
+      <div class="awards-central reveal">
+        <div class="world-best-badge">
+          <div class="badge-outer-ring"></div>
+          <div class="badge-inner-ring"></div>
+          <div class="badge-core">
+            <div class="badge-star-row">★★★★★</div>
+            <div class="badge-title">World's Best</div>
+            <div class="badge-subtitle">Figurine Artist</div>
+            <div class="badge-year">2026</div>
+          </div>
+        </div>
+        <div class="trophy-row">
+          <div class="trophy-item">
+            <div class="trophy-icon">🏆</div>
+            <div class="trophy-name">International Sculpture Prize</div>
+            <div class="trophy-year">2024</div>
+          </div>
+          <div class="trophy-item main-trophy">
+            <div class="trophy-icon golden">🥇</div>
+            <div class="trophy-name">Golden Chisel Award</div>
+            <div class="trophy-year">2023 · Grand Prix</div>
+          </div>
+          <div class="trophy-item">
+            <div class="trophy-icon">🏆</div>
+            <div class="trophy-name">Collectibles Excellence</div>
+            <div class="trophy-year">2022</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="awards-grid">
+        <div class="award-card reveal" data-delay="0">
+          <div class="award-icon">🎖️</div>
+          <h4>Golden Chisel Grand Prix</h4>
+          <p>World Sculpture Federation · 2023</p>
+        </div>
+        <div class="award-card reveal" data-delay="1">
+          <div class="award-icon">🏛️</div>
+          <h4>Museum Excellence Award</h4>
+          <p>Smithsonian Institution · 2022</p>
+        </div>
+        <div class="award-card reveal" data-delay="2">
+          <div class="award-icon">⭐</div>
+          <h4>Collectibles Artist of the Year</h4>
+          <p>Fine Art Society · 2021–2024</p>
+        </div>
+        <div class="award-card reveal" data-delay="3">
+          <div class="award-icon">🎗️</div>
+          <h4>Master Craftsperson Citation</h4>
+          <p>UNESCO Creative Cities · 2020</p>
+        </div>
+        <div class="award-card reveal" data-delay="4">
+          <div class="award-icon">🥇</div>
+          <h4>Best in Show — International</h4>
+          <p>Paris Figurine Expo · 2019</p>
+        </div>
+        <div class="award-card reveal" data-delay="5">
+          <div class="award-icon">📜</div>
+          <h4>Certificate of Distinction</h4>
+          <p>Royal Academy of Arts · 2018</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header">
+      <div class="section-eyebrow reveal">The Atelier · V</div>
+      <h2 class="section-title reveal">Commission a Piece</h2>
+      <p class="section-desc reveal">Each commission is a deeply personal collaboration. Inquiries are accepted for original figurines, portrait sculptures, and limited-edition prints.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-quote">
+          "Every figurine I sculpt carries a piece of its subject's soul. I don't merely replicate form — I seek to illuminate the invisible story behind each face."
+          <span class="quote-attr">— Aurore Villeneuve</span>
+        </div>
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="ci-label">Studio</span>
+            <span class="ci-value">27 West 57th St, New York, NY 10019</span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-label">Correspondence</span>
+            <span class="ci-value">commission@atelieraurore.com</span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-label">Private Viewings</span>
+            <span class="ci-value">By appointment only</span>
+          </div>
+        </div>
+        <div class="contact-social">
+          <a href="#" class="social-btn">Instagram</a>
+          <a href="#" class="social-btn">Behance</a>
+          <a href="#" class="social-btn">Artsy</a>
+        </div>
+      </div>
+
+      <div class="contact-form reveal">
+        <div class="form-label-top">Send an Inquiry</div>
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Your first name">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Your last name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label>Inquiry Type</label>
+          <select>
+            <option>Original Commission</option>
+            <option>Limited Edition Purchase</option>
+            <option>Private Viewing Request</option>
+            <option>Press & Media</option>
+            <option>Exhibition Enquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Budget Range</label>
+          <select>
+            <option>$5,000 – $15,000</option>
+            <option>$15,000 – $50,000</option>
+            <option>$50,000 – $150,000</option>
+            <option>$150,000+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Your Vision</label>
+          <textarea placeholder="Describe the piece you envision — the subject, mood, scale, and any personal significance…"></textarea>
+        </div>
+        <button class="form-submit" onclick="submitForm(this)">Submit Inquiry →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">ATELIER <span>AURORE</span></div>
+      <p class="footer-tagline">World's Finest Figurine Artist · Est. 2008 · New York</p>
+      <div class="footer-links">
+        <a href="#gallery">Gallery</a>
+        <a href="#figurines">Figurines</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <span>© 2026 Atelier Aurore. All rights reserved.</span>
+        <span class="footer-badge">Accepting Commissions</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" onclick="closeLightbox()">✕</button>
+    <div class="lb-content" id="lbContent"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
