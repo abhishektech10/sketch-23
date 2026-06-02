@@ -1,58 +1,55 @@
 /* ==========================================
 ATELIER AURORE - script.js
-Clean Working Version
 ========================================== */
 
-/* ---------- IMAGE DATA ---------- */
-
 const BASE =
-"https://github.com/abhishektech10/sketch-23/releases/download/image/";
+  "https://github.com/abhishektech10/sketch-23/releases/download/image/";
 
 const galleryItems = [
-{
-id: 1,
-title: "Lumière",
-category: "figurine",
-year: "2023",
-image: BASE + "img1.jpg",
-description: "Hand-painted resin sculpture."
-},
-{
-id: 2,
-title: "Concept Studies",
-category: "sketch",
-year: "2022",
-image: BASE + "img2.jpg",
-description: "Graphite concept sketches."
-},
-{
-id: 3,
-title: "Amber Portrait",
-category: "portrait",
-year: "2021",
-image: BASE + "img3.jpg",
-description: "Oil on linen portrait."
-},
-{
-id: 4,
-title: "Solstice",
-category: "figurine",
-year: "2023",
-image: BASE + "img4.jpg",
-description: "Cast bronze figurine."
-}
+  {
+    id: 1,
+    title: "Lumière",
+    category: "figurine",
+    year: "2023",
+    image: BASE + "img1.jpg",
+    description: "Hand-painted resin sculpture."
+  },
+  {
+    id: 2,
+    title: "Concept Studies",
+    category: "sketch",
+    year: "2022",
+    image: BASE + "img2.jpg",
+    description: "Graphite concept sketches."
+  },
+  {
+    id: 3,
+    title: "Amber Portrait",
+    category: "portrait",
+    year: "2021",
+    image: BASE + "img3.jpg",
+    description: "Oil on linen portrait."
+  },
+  {
+    id: 4,
+    title: "Solstice",
+    category: "figurine",
+    year: "2023",
+    image: BASE + "img4.jpg",
+    description: "Cast bronze figurine."
+  }
 ];
 
 /* ---------- LOADER ---------- */
 
 window.addEventListener("load", () => {
-const loader = document.getElementById("loader");
+  const loader = document.getElementById("loader");
 
-if (loader) {
-setTimeout(() => {
-loader.classList.add("hidden");
-}, 1000);
-}
+  if (loader) {
+    setTimeout(() => {
+      loader.classList.add("hidden");
+    }, 1000);
+  }
 });
 
 /* ---------- NAVBAR ---------- */
@@ -60,13 +57,13 @@ loader.classList.add("hidden");
 const navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll", () => {
-if (!navbar) return;
+  if (!navbar) return;
 
-if (window.scrollY > 50) {
-navbar.classList.add("scrolled");
-} else {
-navbar.classList.remove("scrolled");
-}
+  if (window.scrollY > 50) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
 });
 
 /* ---------- MOBILE MENU ---------- */
@@ -76,195 +73,176 @@ const mobileOverlay = document.getElementById("mobileOverlay");
 const mobileClose = document.getElementById("mobileClose");
 
 if (hamburger && mobileOverlay) {
-hamburger.addEventListener("click", () => {
-mobileOverlay.classList.add("open");
-});
+  hamburger.addEventListener("click", () => {
+    mobileOverlay.classList.add("open");
+  });
 }
 
 if (mobileClose && mobileOverlay) {
-mobileClose.addEventListener("click", () => {
-mobileOverlay.classList.remove("open");
-});
+  mobileClose.addEventListener("click", () => {
+    mobileOverlay.classList.remove("open");
+  });
 }
+
+window.closeMobile = function () {
+  if (mobileOverlay) {
+    mobileOverlay.classList.remove("open");
+  }
+};
 
 /* ---------- GALLERY ---------- */
 
 function renderGallery(filter = "all") {
-const grid = document.getElementById("galleryGrid");
+  const grid = document.getElementById("galleryGrid");
 
-if (!grid) return;
+  if (!grid) return;
 
-const filtered =
-filter === "all"
-? galleryItems
-: galleryItems.filter(item => item.category === filter);
+  const filtered =
+    filter === "all"
+      ? galleryItems
+      : galleryItems.filter(item => item.category === filter);
 
-grid.innerHTML = "";
+  grid.innerHTML = "";
 
-filtered.forEach(item => {
-const card = document.createElement("div");
+  filtered.forEach(item => {
+    const card = document.createElement("div");
 
-```
-card.className = "gallery-item";
+    card.className = "gallery-item";
 
-card.innerHTML = `
-  <div class="gallery-image">
-    <img src="${item.image}" alt="${item.title}">
-  </div>
+    card.innerHTML = `
+      <div class="gallery-item-img">
+        <img class="gi-photo" src="${item.image}" alt="${item.title}">
+        <div class="gi-overlay">
+          <span class="overlay-text">View Work</span>
+        </div>
+      </div>
 
-  <div class="gallery-content">
-    <span>${item.year}</span>
-    <h3>${item.title}</h3>
-    <p>${item.description}</p>
-  </div>
-`;
+      <div class="gallery-item-body">
+        <div class="gallery-cat">${item.category}</div>
+        <h3 class="gallery-title">${item.title}</h3>
+        <p class="gallery-desc">${item.description}</p>
+      </div>
+    `;
 
-card.addEventListener("click", () => {
-  openLightbox(item);
-});
+    card.addEventListener("click", () => {
+      openLightbox(item);
+    });
 
-grid.appendChild(card);
-```
-
-});
+    grid.appendChild(card);
+  });
 }
 
-/* ---------- FILTER BUTTONS ---------- */
+/* ---------- FILTERS ---------- */
 
-const filterContainer = document.getElementById("filterTabs");
+const filterTabs = document.getElementById("filterTabs");
 
-if (filterContainer) {
-filterContainer.addEventListener("click", e => {
-const button = e.target.closest(".filter-btn");
+if (filterTabs) {
+  filterTabs.addEventListener("click", e => {
+    const btn = e.target.closest(".filter-btn");
 
-```
-if (!button) return;
+    if (!btn) return;
 
-document
-  .querySelectorAll(".filter-btn")
-  .forEach(btn => btn.classList.remove("active"));
+    document.querySelectorAll(".filter-btn").forEach(button => {
+      button.classList.remove("active");
+    });
 
-button.classList.add("active");
+    btn.classList.add("active");
 
-renderGallery(button.dataset.filter);
-```
-
-});
+    renderGallery(btn.dataset.filter);
+  });
 }
 
 /* ---------- LIGHTBOX ---------- */
 
 function openLightbox(item) {
-const lightbox = document.getElementById("lightbox");
-const content = document.getElementById("lbContent");
+  const lightbox = document.getElementById("lightbox");
+  const content = document.getElementById("lbContent");
 
-if (!lightbox || !content) return;
+  if (!lightbox || !content) return;
 
-content.innerHTML = ` <img
-   src="${item.image}"
-   alt="${item.title}"
-   style="width:100%;border-radius:12px;"
- >
+  content.innerHTML = `
+    <div class="lb-img">
+      <div class="lb-img-real">
+        <img src="${item.image}" alt="${item.title}">
+      </div>
+    </div>
 
-```
-<h2>${item.title}</h2>
+    <div class="lb-body">
+      <div class="lb-cat">${item.category}</div>
+      <h2 class="lb-title">${item.title}</h2>
+      <p class="lb-desc">${item.description}</p>
 
-<p>${item.description}</p>
+      <div class="lb-tags">
+        <span class="lb-tag">${item.year}</span>
+      </div>
+    </div>
+  `;
 
-<small>${item.year}</small>
-```
-
-`;
-
-lightbox.classList.add("open");
+  lightbox.classList.add("open");
 }
 
-function closeLightbox() {
+window.closeLightbox = function () {
+  const lightbox = document.getElementById("lightbox");
+
+  if (lightbox) {
+    lightbox.classList.remove("open");
+  }
+};
+
 const lightbox = document.getElementById("lightbox");
 
 if (lightbox) {
-lightbox.classList.remove("open");
-}
-}
-
-const lightbox = document.getElementById("lightbox");
-
-if (lightbox) {
-lightbox.addEventListener("click", e => {
-if (e.target === lightbox) {
-closeLightbox();
-}
-});
+  lightbox.addEventListener("click", e => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
 }
 
 document.addEventListener("keydown", e => {
-if (e.key === "Escape") {
-closeLightbox();
-}
+  if (e.key === "Escape") {
+    closeLightbox();
+  }
 });
 
-/* ---------- REVEAL ANIMATION ---------- */
+/* ---------- REVEAL ---------- */
 
 const revealObserver = new IntersectionObserver(
-entries => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add("visible");
-}
-});
-},
-{
-threshold: 0.1
-}
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  },
+  {
+    threshold: 0.1
+  }
 );
 
 function initReveal() {
-document.querySelectorAll(".reveal").forEach(el => {
-revealObserver.observe(el);
-});
+  document.querySelectorAll(".reveal").forEach(el => {
+    revealObserver.observe(el);
+  });
 }
 
-/* ---------- SMOOTH SCROLL ---------- */
-
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-link.addEventListener("click", e => {
-const target = document.querySelector(
-link.getAttribute("href")
-);
-
-```
-if (!target) return;
-
-e.preventDefault();
-
-target.scrollIntoView({
-  behavior: "smooth",
-  block: "start"
-});
-```
-
-});
-});
-
-/* ---------- CONTACT FORM ---------- */
+/* ---------- FORM ---------- */
 
 window.submitForm = function (button) {
-if (!button) return;
+  const original = button.textContent;
 
-const originalText = button.textContent;
+  button.disabled = true;
+  button.textContent = "✓ Inquiry Received";
 
-button.disabled = true;
-button.textContent = "✓ Inquiry Received";
-
-setTimeout(() => {
-button.disabled = false;
-button.textContent = originalText;
-}, 3000);
+  setTimeout(() => {
+    button.disabled = false;
+    button.textContent = original;
+  }, 3000);
 };
 
 /* ---------- START ---------- */
 
 document.addEventListener("DOMContentLoaded", () => {
-renderGallery();
-initReveal();
+  renderGallery();
+  initReveal();
 });
