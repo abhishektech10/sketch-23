@@ -1,6 +1,4 @@
-bash
-
-cat > /mnt/user-data/outputs/script.js << 'JSEOF'
+cp /mnt/user-data/uploads/script.js /mnt/user-data/outputs/script.js 2>/dev/null || cat > /mnt/user-data/outputs/script.js << 'JSEOF'
 /* ══════════════════════════════════════════
    ATELIER AURORE — script.js
    Images: github.com/abhishektech10/sketch-23
@@ -243,4 +241,5 @@ Output
 
 exit code 0
 Done
+
 
