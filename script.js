@@ -1,6 +1,8 @@
 /* ==========================================
-ATELIER AURORE - script.js
+   ATELIER AURORE - script.js
 ========================================== */
+
+/* ---------- IMAGE DATA ---------- */
 
 const BASE =
   "https://github.com/abhishektech10/sketch-23/releases/download/image/";
@@ -37,6 +39,38 @@ const galleryItems = [
     year: "2023",
     image: BASE + "img4.jpg",
     description: "Cast bronze figurine."
+  },
+  {
+    id: 5,
+    title: "Aether",
+    category: "concept",
+    year: "2024",
+    image: BASE + "img5.jpg",
+    description: "Digital concept artwork."
+  },
+  {
+    id: 6,
+    title: "Nocturne",
+    category: "portrait",
+    year: "2024",
+    image: BASE + "img6.jpg",
+    description: "Contemporary portrait study."
+  },
+  {
+    id: 7,
+    title: "Origins",
+    category: "sketch",
+    year: "2024",
+    image: BASE + "img7.jpg",
+    description: "Graphite sketch collection."
+  },
+  {
+    id: 8,
+    title: "Empress",
+    category: "figurine",
+    year: "2024",
+    image: BASE + "img8.jpg",
+    description: "Limited edition figurine."
   }
 ];
 
@@ -90,6 +124,40 @@ window.closeMobile = function () {
   }
 };
 
+/* ---------- HERO IMAGE ---------- */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const hero = document.querySelector(".portrait-artist");
+
+  if (hero) {
+    hero.innerHTML = `
+      <img
+        src="${galleryItems[0].image}"
+        alt="Artist"
+        class="hero-real-img"
+      >
+      <div class="portrait-overlay"></div>
+    `;
+  }
+});
+
+/* ---------- FEATURED IMAGES ---------- */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const featured1 = document.getElementById("featured-img-1");
+  const featured2 = document.getElementById("featured-img-2");
+  const featured3 = document.getElementById("featured-img-3");
+
+  if (featured1)
+    featured1.style.backgroundImage = `url('${galleryItems[2].image}')`;
+
+  if (featured2)
+    featured2.style.backgroundImage = `url('${galleryItems[3].image}')`;
+
+  if (featured3)
+    featured3.style.backgroundImage = `url('${galleryItems[1].image}')`;
+});
+
 /* ---------- GALLERY ---------- */
 
 function renderGallery(filter = "all") {
@@ -111,16 +179,91 @@ function renderGallery(filter = "all") {
 
     card.innerHTML = `
       <div class="gallery-item-img">
-        <img class="gi-photo" src="${item.image}" alt="${item.title}">
+        <img
+          class="gi-photo"
+          src="${item.image}"
+          alt="${item.title}"
+        >
+
+        <div class="gallery-badge">
+          ${item.year}
+        </div>
+
         <div class="gi-overlay">
-          <span class="overlay-text">View Work</span>
+          <span class="overlay-text">
+            View Artwork
+          </span>
         </div>
       </div>
 
       <div class="gallery-item-body">
-        <div class="gallery-cat">${item.category}</div>
-        <h3 class="gallery-title">${item.title}</h3>
-        <p class="gallery-desc">${item.description}</p>
+        <div class="gallery-cat">
+          ${item.category}
+        </div>
+
+        <h3 class="gallery-title">
+          ${item.title}
+        </h3>
+
+        <p class="gallery-desc">
+          ${item.description}
+        </p>
+      </div>
+    `;
+
+    card.addEventListener("click", () => {
+      openLightbox(item);
+    });
+
+    grid.appendChild(card);
+  });
+}
+
+/* ---------- FIGURINES ---------- */
+
+function renderFigurines() {
+  const grid = document.getElementById("figurinesGrid");
+
+  if (!grid) return;
+
+  const figurines = galleryItems.filter(
+    item => item.category === "figurine"
+  );
+
+  grid.innerHTML = "";
+
+  figurines.forEach(item => {
+    const card = document.createElement("div");
+
+    card.className = "figurine-card";
+
+    card.innerHTML = `
+      <div class="fc-img">
+        <img
+          class="fc-photo"
+          src="${item.image}"
+          alt="${item.title}"
+        >
+
+        <div class="fc-spotlight"></div>
+
+        <div class="fc-badge">
+          ${item.year}
+        </div>
+      </div>
+
+      <div class="fc-body">
+        <div class="fc-cat">
+          Figurine
+        </div>
+
+        <div class="fc-name">
+          ${item.title}
+        </div>
+
+        <div class="fc-edition">
+          Limited Collection
+        </div>
       </div>
     `;
 
@@ -168,9 +311,17 @@ function openLightbox(item) {
     </div>
 
     <div class="lb-body">
-      <div class="lb-cat">${item.category}</div>
-      <h2 class="lb-title">${item.title}</h2>
-      <p class="lb-desc">${item.description}</p>
+      <div class="lb-cat">
+        ${item.category}
+      </div>
+
+      <h2 class="lb-title">
+        ${item.title}
+      </h2>
+
+      <p class="lb-desc">
+        ${item.description}
+      </p>
 
       <div class="lb-tags">
         <span class="lb-tag">${item.year}</span>
@@ -229,14 +380,14 @@ function initReveal() {
 /* ---------- FORM ---------- */
 
 window.submitForm = function (button) {
-  const original = button.textContent;
+  const originalText = button.textContent;
 
   button.disabled = true;
   button.textContent = "✓ Inquiry Received";
 
   setTimeout(() => {
     button.disabled = false;
-    button.textContent = original;
+    button.textContent = originalText;
   }, 3000);
 };
 
@@ -244,5 +395,6 @@ window.submitForm = function (button) {
 
 document.addEventListener("DOMContentLoaded", () => {
   renderGallery();
+  renderFigurines();
   initReveal();
 });
