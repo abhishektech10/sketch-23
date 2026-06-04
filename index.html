@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ELISON </title>
+  <title>ELISON — Atelier Aurore</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style-new.css" />
 </head>
 <body>
 
@@ -30,6 +31,7 @@
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#figurines">Figurines</a></li>
       <li><a href="#featured">Featured</a></li>
+      <li><a href="#comics">Comics</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -45,6 +47,7 @@
       <a href="#gallery"   onclick="closeMobile()">Gallery</a>
       <a href="#figurines" onclick="closeMobile()">Figurines</a>
       <a href="#featured"  onclick="closeMobile()">Featured</a>
+      <a href="#comics"    onclick="closeMobile()">Comics</a>
       <a href="#about"     onclick="closeMobile()">About</a>
       <a href="#contact"   onclick="closeMobile()">Contact</a>
     </nav>
@@ -61,7 +64,6 @@
     <div class="hero-right">
       <div class="hero-portrait-frame">
         <div class="portrait-artist">
-          <!-- hero image injected by JS -->
           <div class="portrait-overlay"></div>
         </div>
       </div>
@@ -112,6 +114,142 @@
     </div>
   </section>
 
+  <!-- ══ COMICS ══ -->
+  <section id="comics">
+    <div class="section-head reveal">
+      <p class="section-label">Fantasy Adventure Series</p>
+      <h2 class="section-title">Comics</h2>
+    </div>
+    <div id="comicsGrid" class="comics-grid"></div>
+  </section>
+
+  <!-- ══ STORY ══ -->
+  <section id="story">
+    <div class="story-container">
+      <div class="story-header reveal">
+        <p class="section-label">Original Narrative</p>
+        <h2 class="section-title">The Encounter</h2>
+        <div class="story-divider"></div>
+      </div>
+
+      <div class="story-body">
+        <div class="story-column reveal">
+          <div class="story-lang-tag">English</div>
+          <p>The cold air bit at their skin as the group arrived at the city's edge. Among them, a mysterious man in a hat and scarf watched from the shadows, his heart racing.</p>
+          <p>"Why is this devil here?" he thought, pulling his scarf tighter, desperate to remain unseen.</p>
+          <p>While some of the group marveled at the first snowfall like children, the atmosphere shifted as they entered the grand Adventurers' Guild.</p>
+          <p>Inside, the warmth of the hearth contrasted with the chill outside. While others toasted to the night and danced, the group sought work.</p>
+          <p>A receptionist beamed, pointing toward the notice board and the mysterious man sitting in the corner, who was desperately seeking an escort to the other side of the city.</p>
+        </div>
+
+        <div class="story-column reveal">
+          <div class="story-lang-tag">Русский</div>
+          <p>Холодный воздух обжигал кожу, когда группа прибыла на окраину города. Среди них таинственный человек в шляпе и шарфе наблюдал из тени, его сердце бешено колотилось.</p>
+          <p>«Почему этот дьявол здесь?» — подумал он, плотнее закутываясь в шарф.</p>
+          <p>Пока некоторые члены группы восхищались первым снегом, атмосфера изменилась, когда они вошли в величественную Гильдию авантюристов.</p>
+          <p>Внутри тепло очага контрастировало с холодом снаружи. Пока другие пили за успех и танцевали, группа искала работу.</p>
+          <p>Администратор просияла, указывая на доску объявлений и на того самого таинственного человека, сидящего в углу, который отчаянно искал сопровождение на другой конец города.</p>
+        </div>
+      </div>
+
+      <!-- ── KEY PHRASES ── -->
+      <div class="key-phrases">
+        <div class="kp-header reveal">
+          <p class="section-label">Key Phrases</p>
+          <h3 class="kp-title">Moments That Define the Story</h3>
+        </div>
+        <div class="kp-grid">
+          <div class="kp-card reveal">
+            <div class="kp-icon">✦</div>
+            <p class="kp-en">An unexpected meeting.</p>
+            <p class="kp-ru">Неожиданная встреча.</p>
+          </div>
+          <div class="kp-card reveal">
+            <div class="kp-icon">✦</div>
+            <p class="kp-en">A secret mission in the city.</p>
+            <p class="kp-ru">Секретная миссия в городе.</p>
+          </div>
+          <div class="kp-card reveal">
+            <div class="kp-icon">✦</div>
+            <p class="kp-en">The Guild is full of life and mystery.</p>
+            <p class="kp-ru">Гильдия полна жизни и тайн.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CHAPTER TIMELINE ── -->
+      <div class="timeline-section">
+        <div class="timeline-header reveal">
+          <p class="section-label">Story Arc</p>
+          <h3 class="kp-title">What Lies Ahead</h3>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="tl-marker">
+              <span class="tl-num">01</span>
+            </div>
+            <div class="tl-card">
+              <div class="tl-chapter">Chapter 1</div>
+              <h4 class="tl-name">Fear</h4>
+              <p class="tl-desc">A stranger is spotted in the crowd. Recognition sparks dread. The city holds secrets no one dares speak aloud.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="tl-marker">
+              <span class="tl-num">02</span>
+            </div>
+            <div class="tl-card">
+              <div class="tl-chapter">Chapter 2</div>
+              <h4 class="tl-name">Escort Mission</h4>
+              <p class="tl-desc">Coin changes hands. Uneasy allies set out through dangerous streets, each hiding something from the other.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="tl-marker">
+              <span class="tl-num">03</span>
+            </div>
+            <div class="tl-card">
+              <div class="tl-chapter">Chapter 3</div>
+              <h4 class="tl-name">Secrets</h4>
+              <p class="tl-desc">Half-truths surface in candlelight. Every answer births three new questions. Trust becomes a currency no one can afford.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="tl-marker">
+              <span class="tl-num">04</span>
+            </div>
+            <div class="tl-card">
+              <div class="tl-chapter">Chapter 4</div>
+              <h4 class="tl-name">Betrayal</h4>
+              <p class="tl-desc">The knife comes from an unexpected hand. Loyalties shatter. The city watches with indifferent eyes.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="tl-marker">
+              <span class="tl-num">05</span>
+            </div>
+            <div class="tl-card">
+              <div class="tl-chapter">Chapter 5</div>
+              <h4 class="tl-name">Truth</h4>
+              <p class="tl-desc">The veil is torn. Identities collide with history. What was feared becomes understood — and that changes everything.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="tl-marker">
+              <span class="tl-num">06</span>
+            </div>
+            <div class="tl-card tl-card--last">
+              <div class="tl-chapter">Chapter 6</div>
+              <h4 class="tl-name">Alliance</h4>
+              <p class="tl-desc">Former enemies stand side by side. A new pact forged in fire and silence. The real journey begins here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ══ ABOUT ══ -->
   <section id="about">
     <div class="about-inner reveal">
@@ -119,7 +257,7 @@
         <p class="section-label">The Artist</p>
         <h2 class="section-title">About Elison</h2>
         <p>A sculptor and visual artist working across resin figurines, oil portraiture, and digital concept art. Each piece is a dialogue between material and imagination — rooted in classical anatomy, reaching toward something new.</p>
-        <p>Based in Russia, Elison work has been exhibited internationally and collected across three continents. Commissions are accepted by appointment.</p>
+        <p>Based in Russia, Elison's work has been exhibited internationally and collected across three continents. Commissions are accepted by appointment.</p>
       </div>
       <div class="awards-list">
         <div class="award-card reveal"><span class="award-year">2024</span><span class="award-name">Empress Commission — Private Collection, London</span></div>
@@ -168,5 +306,6 @@
   </div>
 
   <script src="script.js"></script>
+  <script src="script-new.js"></script>
 </body>
 </html>
