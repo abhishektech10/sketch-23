@@ -1,330 +1,94 @@
-/* ==========================================
-   ATELIER AURORE - script.js
-========================================== */
+/* ══════════════════════════════════════════
+   ATELIER AURORE — script-new.js
+   Comics section + theme cursor fix
+   ══════════════════════════════════════════ */
 
-/* ---------- IMAGE DATA ---------- */
+/* ---------- COMICS DATA ---------- */
 
-const BASE =
+const COMIC_BASE =
   "https://github.com/abhishektech10/sketch-23/releases/download/image/";
 
-const galleryItems = [
-  {
-    id: 1,
-    title: "Lumière",
-    category: "figurine",
-    year: "2023",
-    image: BASE + "img1.jpg",
-    description: "Hand-painted resin sculpture."
-  },
-  {
-    id: 2,
-    title: "Concept Studies",
-    category: "sketch",
-    year: "2022",
-    image: BASE + "img2.jpg",
-    description: "Graphite concept sketches."
-  },
-  {
-    id: 3,
-    title: "Amber Portrait",
-    category: "portrait",
-    year: "2021",
-    image: BASE + "img3.jpg",
-    description: "Oil on linen portrait."
-  },
-  {
-    id: 4,
-    title: "Solstice",
-    category: "figurine",
-    year: "2023",
-    image: BASE + "img4.jpg",
-    description: "Cast bronze figurine."
-  },
-  {
-    id: 5,
-    title: "Aether",
-    category: "concept",
-    year: "2024",
-    image: BASE + "img5.jpg",
-    description: "Digital concept artwork."
-  },
-  {
-    id: 6,
-    title: "Nocturne",
-    category: "portrait",
-    year: "2024",
-    image: BASE + "img6.jpg",
-    description: "Contemporary portrait study."
-  },
-  {
-    id: 7,
-    title: "Origins",
-    category: "sketch",
-    year: "2024",
-    image: BASE + "img7.jpg",
-    description: "Graphite sketch collection."
-  },
-  {
-    id: 8,
-    title: "Empress",
-    category: "figurine",
-    year: "2024",
-    image: BASE + "img8.jpg",
-    description: "Limited edition figurine."
-  }
+const comicPages = [
+  { num: 1,  title: "City's Edge",        file: "sketch.1.jpg"  },
+  { num: 2,  title: "Shadow Watch",        file: "sketch.2.jpg"  },
+  { num: 3,  title: "First Snow",          file: "sketch.3.jpg"  },
+  { num: 4,  title: "The Guild Gates",     file: "sketch.4.jpg"  },
+  { num: 5,  title: "Warmth Within",       file: "sketch.5.jpg"  },
+  { num: 6,  title: "Notice Board",        file: "sketch.6.jpg"  },
+  { num: 7,  title: "The Stranger",        file: "sketch.7.jpg"  },
+  { num: 8,  title: "A Deal in Shadows",   file: "sketch.8.jpg"  },
+  { num: 9,  title: "Uneasy Company",      file: "sketch.9.jpg"  },
+  { num: 10, title: "Street by Night",     file: "sketch.10.jpg" },
+  { num: 11, title: "Half-truths",         file: "sketch.11.jpg" },
+  { num: 12, title: "The Turning Point",   file: "sketch.12.jpg" },
+  { num: 13, title: "Broken Trust",        file: "sketch.13.jpg" },
+  { num: 14, title: "Revelation",          file: "sketch.14.jpg" },
+  { num: 15, title: "New Alliance",        file: "sketch.15.jpg" },
 ];
 
-/* ---------- LOADER ---------- */
+/* ---------- RENDER COMICS ---------- */
 
-window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-
-  if (loader) {
-    setTimeout(() => {
-      loader.classList.add("hidden");
-    }, 1000);
-  }
-});
-
-/* ---------- NAVBAR ---------- */
-
-const navbar = document.getElementById("navbar");
-
-window.addEventListener("scroll", () => {
-  if (!navbar) return;
-
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
-});
-
-/* ---------- MOBILE MENU ---------- */
-
-const hamburger = document.getElementById("hamburger");
-const mobileOverlay = document.getElementById("mobileOverlay");
-const mobileClose = document.getElementById("mobileClose");
-
-if (hamburger && mobileOverlay) {
-  hamburger.addEventListener("click", () => {
-    mobileOverlay.classList.add("open");
-  });
-}
-
-if (mobileClose && mobileOverlay) {
-  mobileClose.addEventListener("click", () => {
-    mobileOverlay.classList.remove("open");
-  });
-}
-
-window.closeMobile = function () {
-  if (mobileOverlay) {
-    mobileOverlay.classList.remove("open");
-  }
-};
-
-/* ---------- HERO IMAGE ---------- */
-
-document.addEventListener("DOMContentLoaded", () => {
-  const hero = document.querySelector(".portrait-artist");
-
-  if (hero) {
-    hero.innerHTML = `
-      <img
-        src="${galleryItems[0].image}"
-        alt="Artist"
-        class="hero-real-img"
-      >
-      <div class="portrait-overlay"></div>
-    `;
-  }
-});
-
-/* ---------- FEATURED IMAGES ---------- */
-
-document.addEventListener("DOMContentLoaded", () => {
-  const featured1 = document.getElementById("featured-img-1");
-  const featured2 = document.getElementById("featured-img-2");
-  const featured3 = document.getElementById("featured-img-3");
-
-  if (featured1)
-    featured1.style.backgroundImage = `url('${galleryItems[2].image}')`;
-
-  if (featured2)
-    featured2.style.backgroundImage = `url('${galleryItems[3].image}')`;
-
-  if (featured3)
-    featured3.style.backgroundImage = `url('${galleryItems[1].image}')`;
-});
-
-/* ---------- GALLERY ---------- */
-
-function renderGallery(filter = "all") {
-  const grid = document.getElementById("galleryGrid");
-
+function renderComics() {
+  const grid = document.getElementById("comicsGrid");
   if (!grid) return;
-
-  const filtered =
-    filter === "all"
-      ? galleryItems
-      : galleryItems.filter(item => item.category === filter);
 
   grid.innerHTML = "";
 
-  filtered.forEach(item => {
+  comicPages.forEach(page => {
     const card = document.createElement("div");
-
-    card.className = "gallery-item";
+    card.className = "comic-card reveal";
 
     card.innerHTML = `
-      <div class="gallery-item-img">
+      <div class="comic-card-img">
         <img
-          class="gi-photo"
-          src="${item.image}"
-          alt="${item.title}"
+          src="${COMIC_BASE}${page.file}"
+          alt="${page.title}"
+          loading="lazy"
         >
-
-        <div class="gallery-badge">
-          ${item.year}
-        </div>
-
-        <div class="gi-overlay">
-          <span class="overlay-text">
-            View Artwork
-          </span>
+        <div class="comic-overlay">
+          <span class="comic-overlay-label">View Page</span>
         </div>
       </div>
-
-      <div class="gallery-item-body">
-        <div class="gallery-cat">
-          ${item.category}
-        </div>
-
-        <h3 class="gallery-title">
-          ${item.title}
-        </h3>
-
-        <p class="gallery-desc">
-          ${item.description}
-        </p>
+      <div class="comic-card-body">
+        <div class="comic-page-num">Page ${String(page.num).padStart(2, "0")}</div>
+        <div class="comic-page-title">${page.title}</div>
       </div>
     `;
 
     card.addEventListener("click", () => {
-      openLightbox(item);
+      openComicLightbox(page);
     });
 
     grid.appendChild(card);
   });
-}
 
-/* ---------- FIGURINES ---------- */
-
-function renderFigurines() {
-  const grid = document.getElementById("figurinesGrid");
-
-  if (!grid) return;
-
-  const figurines = galleryItems.filter(
-    item => item.category === "figurine"
-  );
-
-  grid.innerHTML = "";
-
-  figurines.forEach(item => {
-    const card = document.createElement("div");
-
-    card.className = "figurine-card";
-
-    card.innerHTML = `
-      <div class="fc-img">
-        <img
-          class="fc-photo"
-          src="${item.image}"
-          alt="${item.title}"
-        >
-
-        <div class="fc-spotlight"></div>
-
-        <div class="fc-badge">
-          ${item.year}
-        </div>
-      </div>
-
-      <div class="fc-body">
-        <div class="fc-cat">
-          Figurine
-        </div>
-
-        <div class="fc-name">
-          ${item.title}
-        </div>
-
-        <div class="fc-edition">
-          Limited Collection
-        </div>
-      </div>
-    `;
-
-    card.addEventListener("click", () => {
-      openLightbox(item);
-    });
-
-    grid.appendChild(card);
+  // Re-observe new reveal elements added to DOM
+  document.querySelectorAll(".comic-card.reveal").forEach(el => {
+    revealObserver.observe(el);
   });
 }
 
-/* ---------- FILTERS ---------- */
+/* ---------- COMIC LIGHTBOX ---------- */
 
-const filterTabs = document.getElementById("filterTabs");
-
-if (filterTabs) {
-  filterTabs.addEventListener("click", e => {
-    const btn = e.target.closest(".filter-btn");
-
-    if (!btn) return;
-
-    document.querySelectorAll(".filter-btn").forEach(button => {
-      button.classList.remove("active");
-    });
-
-    btn.classList.add("active");
-
-    renderGallery(btn.dataset.filter);
-  });
-}
-
-/* ---------- LIGHTBOX ---------- */
-
-function openLightbox(item) {
+function openComicLightbox(page) {
   const lightbox = document.getElementById("lightbox");
-  const content = document.getElementById("lbContent");
-
+  const content  = document.getElementById("lbContent");
   if (!lightbox || !content) return;
 
   content.innerHTML = `
     <div class="lb-img">
       <div class="lb-img-real">
-        <img src="${item.image}" alt="${item.title}">
+        <img src="${COMIC_BASE}${page.file}" alt="${page.title}">
       </div>
     </div>
-
     <div class="lb-body">
-      <div class="lb-cat">
-        ${item.category}
-      </div>
-
-      <h2 class="lb-title">
-        ${item.title}
-      </h2>
-
-      <p class="lb-desc">
-        ${item.description}
-      </p>
-
+      <div class="lb-cat">Comics · Fantasy Adventure</div>
+      <h2 class="lb-title">${page.title}</h2>
+      <p class="lb-desc">Page ${page.num} of The Encounter series — a fantasy adventure story following unlikely allies through a city of secrets, shadows, and old wounds.</p>
       <div class="lb-tags">
-        <span class="lb-tag">${item.year}</span>
+        <span class="lb-tag">Page ${String(page.num).padStart(2, "0")}</span>
+        <span class="lb-tag">The Encounter</span>
+        <span class="lb-tag">2024</span>
       </div>
     </div>
   `;
@@ -332,69 +96,40 @@ function openLightbox(item) {
   lightbox.classList.add("open");
 }
 
-window.closeLightbox = function () {
-  const lightbox = document.getElementById("lightbox");
+/* ---------- CURSOR FIX FOR LIGHT THEME ---------- */
+// Re-wire cursor for white background theme
+(function() {
+  const dot  = document.getElementById("cursorDot");
+  const ring = document.getElementById("cursorRing");
 
-  if (lightbox) {
-    lightbox.classList.remove("open");
-  }
-};
+  if (!dot || !ring) return;
 
-const lightbox = document.getElementById("lightbox");
-
-if (lightbox) {
-  lightbox.addEventListener("click", e => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
+  document.addEventListener("mousemove", e => {
+    dot.style.left  = e.clientX + "px";
+    dot.style.top   = e.clientY + "px";
+    ring.style.left = e.clientX + "px";
+    ring.style.top  = e.clientY + "px";
   });
-}
 
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") {
-    closeLightbox();
+  document.querySelectorAll("a, button, .gallery-item, .figurine-card, .comic-card").forEach(el => {
+    el.addEventListener("mouseenter", () => ring.classList.add("hovered"));
+    el.addEventListener("mouseleave", () => ring.classList.remove("hovered"));
+  });
+})();
+
+/* ---------- LOADER BAR FIX ---------- */
+// Trigger fill animation immediately
+window.addEventListener("DOMContentLoaded", () => {
+  const fill = document.querySelector(".loader-fill");
+  if (fill) {
+    requestAnimationFrame(() => {
+      fill.style.width = "100%";
+    });
   }
 });
 
-/* ---------- REVEAL ---------- */
-
-const revealObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  },
-  {
-    threshold: 0.1
-  }
-);
-
-function initReveal() {
-  document.querySelectorAll(".reveal").forEach(el => {
-    revealObserver.observe(el);
-  });
-}
-
-/* ---------- FORM ---------- */
-
-window.submitForm = function (button) {
-  const originalText = button.textContent;
-
-  button.disabled = true;
-  button.textContent = "✓ Inquiry Received";
-
-  setTimeout(() => {
-    button.disabled = false;
-    button.textContent = originalText;
-  }, 3000);
-};
-
-/* ---------- START ---------- */
+/* ---------- INIT ---------- */
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderGallery();
-  renderFigurines();
-  initReveal();
+  renderComics();
 });
