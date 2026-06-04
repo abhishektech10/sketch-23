@@ -8,11 +8,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="style-new.css" />
 </head>
 <body>
 
-  <!-- ══ LOADER ══ -->
+  <!-- LOADER -->
   <div id="loader">
     <div class="loader-inner">
       <div class="loader-brand">Atelier Aurore</div>
@@ -20,11 +19,11 @@
     </div>
   </div>
 
-  <!-- ══ CUSTOM CURSOR ══ -->
+  <!-- CURSOR -->
   <div id="cursorDot"></div>
   <div id="cursorRing"></div>
 
-  <!-- ══ NAVBAR ══ -->
+  <!-- NAVBAR -->
   <nav id="navbar">
     <a href="#hero" class="nav-logo">AA</a>
     <ul class="nav-links">
@@ -32,6 +31,7 @@
       <li><a href="#figurines">Figurines</a></li>
       <li><a href="#featured">Featured</a></li>
       <li><a href="#comics">Comics</a></li>
+      <li><a href="#story">Story</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -40,7 +40,7 @@
     </button>
   </nav>
 
-  <!-- ══ MOBILE OVERLAY ══ -->
+  <!-- MOBILE OVERLAY -->
   <div id="mobileOverlay">
     <button id="mobileClose" aria-label="Close menu">✕</button>
     <nav class="mobile-nav">
@@ -48,12 +48,13 @@
       <a href="#figurines" onclick="closeMobile()">Figurines</a>
       <a href="#featured"  onclick="closeMobile()">Featured</a>
       <a href="#comics"    onclick="closeMobile()">Comics</a>
+      <a href="#story"     onclick="closeMobile()">Story</a>
       <a href="#about"     onclick="closeMobile()">About</a>
       <a href="#contact"   onclick="closeMobile()">Contact</a>
     </nav>
   </div>
 
-  <!-- ══ HERO ══ -->
+  <!-- HERO -->
   <section id="hero" class="hero-section">
     <div class="hero-left reveal">
       <p class="hero-label">Artist · Sculptor · Visionary</p>
@@ -70,7 +71,7 @@
     </div>
   </section>
 
-  <!-- ══ GALLERY ══ -->
+  <!-- GALLERY -->
   <section id="gallery">
     <div class="section-head reveal">
       <p class="section-label">Portfolio</p>
@@ -86,7 +87,7 @@
     <div id="galleryGrid" class="gallery-grid"></div>
   </section>
 
-  <!-- ══ FIGURINES ══ -->
+  <!-- FIGURINES -->
   <section id="figurines">
     <div class="section-head reveal">
       <p class="section-label">Collection</p>
@@ -95,7 +96,7 @@
     <div id="figurinesGrid" class="figurines-grid"></div>
   </section>
 
-  <!-- ══ FEATURED ══ -->
+  <!-- FEATURED -->
   <section id="featured">
     <div class="section-head reveal">
       <p class="section-label">Highlights</p>
@@ -114,7 +115,7 @@
     </div>
   </section>
 
-  <!-- ══ COMICS ══ -->
+  <!-- COMICS -->
   <section id="comics">
     <div class="section-head reveal">
       <p class="section-label">Fantasy Adventure Series</p>
@@ -123,9 +124,10 @@
     <div id="comicsGrid" class="comics-grid"></div>
   </section>
 
-  <!-- ══ STORY ══ -->
+  <!-- STORY -->
   <section id="story">
     <div class="story-container">
+
       <div class="story-header reveal">
         <p class="section-label">Original Narrative</p>
         <h2 class="section-title">The Encounter</h2>
@@ -141,7 +143,6 @@
           <p>Inside, the warmth of the hearth contrasted with the chill outside. While others toasted to the night and danced, the group sought work.</p>
           <p>A receptionist beamed, pointing toward the notice board and the mysterious man sitting in the corner, who was desperately seeking an escort to the other side of the city.</p>
         </div>
-
         <div class="story-column reveal">
           <div class="story-lang-tag">Русский</div>
           <p>Холодный воздух обжигал кожу, когда группа прибыла на окраину города. Среди них таинственный человек в шляпе и шарфе наблюдал из тени, его сердце бешено колотилось.</p>
@@ -152,7 +153,7 @@
         </div>
       </div>
 
-      <!-- ── KEY PHRASES ── -->
+      <!-- KEY PHRASES -->
       <div class="key-phrases">
         <div class="kp-header reveal">
           <p class="section-label">Key Phrases</p>
@@ -177,7 +178,7 @@
         </div>
       </div>
 
-      <!-- ── CHAPTER TIMELINE ── -->
+      <!-- CHAPTER TIMELINE -->
       <div class="timeline-section">
         <div class="timeline-header reveal">
           <p class="section-label">Story Arc</p>
@@ -185,9 +186,7 @@
         </div>
         <div class="timeline">
           <div class="timeline-item reveal">
-            <div class="tl-marker">
-              <span class="tl-num">01</span>
-            </div>
+            <div class="tl-marker"><span class="tl-num">01</span></div>
             <div class="tl-card">
               <div class="tl-chapter">Chapter 1</div>
               <h4 class="tl-name">Fear</h4>
@@ -195,9 +194,7 @@
             </div>
           </div>
           <div class="timeline-item reveal">
-            <div class="tl-marker">
-              <span class="tl-num">02</span>
-            </div>
+            <div class="tl-marker"><span class="tl-num">02</span></div>
             <div class="tl-card">
               <div class="tl-chapter">Chapter 2</div>
               <h4 class="tl-name">Escort Mission</h4>
@@ -205,9 +202,7 @@
             </div>
           </div>
           <div class="timeline-item reveal">
-            <div class="tl-marker">
-              <span class="tl-num">03</span>
-            </div>
+            <div class="tl-marker"><span class="tl-num">03</span></div>
             <div class="tl-card">
               <div class="tl-chapter">Chapter 3</div>
               <h4 class="tl-name">Secrets</h4>
@@ -215,9 +210,7 @@
             </div>
           </div>
           <div class="timeline-item reveal">
-            <div class="tl-marker">
-              <span class="tl-num">04</span>
-            </div>
+            <div class="tl-marker"><span class="tl-num">04</span></div>
             <div class="tl-card">
               <div class="tl-chapter">Chapter 4</div>
               <h4 class="tl-name">Betrayal</h4>
@@ -225,9 +218,7 @@
             </div>
           </div>
           <div class="timeline-item reveal">
-            <div class="tl-marker">
-              <span class="tl-num">05</span>
-            </div>
+            <div class="tl-marker"><span class="tl-num">05</span></div>
             <div class="tl-card">
               <div class="tl-chapter">Chapter 5</div>
               <h4 class="tl-name">Truth</h4>
@@ -235,9 +226,7 @@
             </div>
           </div>
           <div class="timeline-item reveal">
-            <div class="tl-marker">
-              <span class="tl-num">06</span>
-            </div>
+            <div class="tl-marker"><span class="tl-num">06</span></div>
             <div class="tl-card tl-card--last">
               <div class="tl-chapter">Chapter 6</div>
               <h4 class="tl-name">Alliance</h4>
@@ -250,7 +239,7 @@
     </div>
   </section>
 
-  <!-- ══ ABOUT ══ -->
+  <!-- ABOUT -->
   <section id="about">
     <div class="about-inner reveal">
       <div class="about-text">
@@ -268,7 +257,7 @@
     </div>
   </section>
 
-  <!-- ══ CONTACT ══ -->
+  <!-- CONTACT -->
   <section id="contact">
     <div class="section-head reveal">
       <p class="section-label">Get in Touch</p>
@@ -276,8 +265,8 @@
     </div>
     <div class="contact-form reveal">
       <div class="form-row">
-        <input type="text"   placeholder="Your Name"    />
-        <input type="email"  placeholder="Your Email"   />
+        <input type="text"  placeholder="Your Name" />
+        <input type="email" placeholder="Your Email" />
       </div>
       <select>
         <option value="" disabled selected>Type of Inquiry</option>
@@ -292,20 +281,19 @@
     </div>
   </section>
 
-  <!-- ══ FOOTER ══ -->
+  <!-- FOOTER -->
   <footer>
     <p class="footer-logo">Atelier Aurore</p>
     <p class="footer-copy">© 2026 Elison. All rights reserved.</p>
     <a href="https://github.com/abhishektech10/sketch-23" target="_blank" rel="noopener" class="footer-gh">GitHub ↗</a>
   </footer>
 
-  <!-- ══ LIGHTBOX ══ -->
+  <!-- LIGHTBOX -->
   <div id="lightbox">
     <button class="lb-close" onclick="closeLightbox()">✕</button>
     <div id="lbContent" class="lb-content"></div>
   </div>
 
   <script src="script.js"></script>
-  <script src="script-new.js"></script>
 </body>
 </html>
